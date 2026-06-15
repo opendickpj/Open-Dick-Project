@@ -70,6 +70,7 @@ The private prototype server should keep these controls enabled before any publi
 - upload and model endpoints have rate limits
 - saved submission metadata is size-limited and sanitized
 - responses include CSP, frame blocking, MIME sniffing protection, and no-referrer headers
+- analytics must not send raw images, deletion IDs, mask geometry, size, country, age, or other contribution data
 
 For a broader beta, add Cloudflare WAF/rate limiting, private object storage, backup rules, access logs review, and a tested deletion workflow.
 
