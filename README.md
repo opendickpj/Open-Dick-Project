@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/open-dick-project-logo.png" width="120" alt="Open Dick Project logo">
+</p>
+
 # Open Dick Project
 
 There is a weirdly important missing piece in computer vision:
