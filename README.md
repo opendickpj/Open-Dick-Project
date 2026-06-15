@@ -151,6 +151,10 @@ This project only works if the rules are clear.
 - Raw photos stay private.
 - Public releases must not expose contributors.
 
+See [Dataset Governance](DATASET_GOVERNANCE.md) for risks, deletion rules, demographic-data policy, and maintenance metrics.
+
+See [Security Policy](SECURITY.md) for the public/private data boundary and minimum operational checks.
+
 ## License
 
 The public code and documentation are intended to be released under the MIT License.
