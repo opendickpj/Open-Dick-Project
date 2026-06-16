@@ -1,171 +1,86 @@
-<p align="center">
-  <img src="assets/open-dick-project-logo-highres.png" width="140" alt="Open Dick Project logo">
-</p>
-
 # Open Dick Project
 
-There is a weirdly important missing piece in computer vision:
+Website: https://opendickproject.dpdns.org/mask?v=mask-collector
 
-**we do not have a practical open dataset for self-shot private anatomy masking.**
+There was no practical open dataset for masking self-shot private anatomy.
 
-That means apps, safety tools, research prototypes, and privacy filters often have to guess. They fail on real phone photos, real angles, real lighting, and real bodies.
+That is the problem.
 
-Open Dick Project exists to fix that.
+Modern AI can detect faces, cars, hands, food, pets, documents, and almost everything else. But when it comes to private anatomy segmentation, the open data simply is not there.
 
-## The Real Goal
+Open Dick Project exists to build the missing mask dataset, annotation workflow, and research tools needed for safer and more accurate private-image processing.
 
-This is not just a measurement app.
+## What This Project Builds
 
-Measurement and masking are different problems.
+- A web-based mask collection and annotation flow
+- Consent-first dataset collection tooling
+- Segmentation mask correction UI
+- Research notes for private anatomy detection and masking
+- A path toward better measurement, privacy protection, and moderation tools
 
-**Masking** means finding the exact pixels that belong to the target.  
-**Measurement** means turning that shape into length, girth, and scale.
+## Why It Matters
 
-You cannot measure well if you cannot first see the target well.
+Without reliable mask data, every product in this area gets worse:
 
-That is why this project starts with masks.
+- bad masks
+- bad measurement tools
+- bad privacy protection
+- bad moderation
+- bad user experience
 
-## Why Masks Come First
+This project is an attempt to fix that gap directly.
 
-A bounding box is not enough.
+## Privacy Position
 
-NSFW detectors can sometimes say "there is a penis in this image." That is useful, but it does not tell us:
+Raw photos are not published.
 
-- where the shaft actually starts
-- where the tip ends
-- which pixels are hand, thigh, clothing, shadow, or background
-- where the centerline should go
-- where girth should be measured
-- whether the object is cropped or angled
+The public repository focuses on code, tools, documentation, schemas, and research workflow. Private submissions must be handled separately from the public codebase.
 
-For future size estimation, the model needs shape, not just detection.
+## Safety and Legal Policies
 
-The mask is the foundation. Measurement comes after.
+This project handles sensitive data. The public policy drafts are:
 
-## Why This Dataset Should Exist
+- [Privacy Policy](LEGAL/PRIVACY_POLICY.md)
+- [Terms of Use](LEGAL/TERMS_OF_USE.md)
+- [Consent Policy](LEGAL/CONSENT_POLICY.md)
+- [Deletion Policy](LEGAL/DELETION_POLICY.md)
+- [CSAM Response Policy](LEGAL/CSAM_RESPONSE_POLICY.md)
 
-There are general segmentation models. There are NSFW classifiers. There are object detectors.
+These are operating drafts, not legal advice. Broad public collection requires qualified legal review.
 
-But we have not found a practical, consent-first, open dataset focused on **self-shot private anatomy segmentation**.
+Zero tolerance: minor or suspected minor sexual content must not be collected, processed, trained on, published, or shared.
 
-That gap matters because real phone images are messy:
+## Dataset Policy
 
-- one-handed shooting
-- top-down angles
-- close distance
-- poor lighting
-- skin, hair, fabric, hands, and shadows
-- inconsistent framing
-- no clean studio background
+Only adult, consented, self-owned submissions should be used for dataset work.
 
-Models trained on generic data do not reliably solve this.
+Current policy:
 
-So the first job is not magic AI.  
-The first job is better data.
+- Raw images: private, not published
+- Public code: MIT License
+- Masks and derived annotations: release policy to be defined by consent and dataset governance
+- Minor or suspected minor content: prohibited and subject to safety response
 
-## The Simple Idea
+## Local Development
 
-We are building open mask data for private anatomy segmentation.
+Start the local web server:
 
-Not a gallery.  
-Not a porn archive.  
-Not a place to publish raw photos.
+```bash
+node server.mjs
+```
 
-The goal is simple:
+Then open:
 
-1. Adults take their own photo.
-2. They paint only the target area.
-3. The corrected mask helps train better segmentation models.
-4. Raw photos stay private.
-5. Useful tools and research can be released openly.
+```txt
+http://localhost:8787/
+```
 
-## Why This Matters
+Mask collector:
 
-Most public vision datasets avoid this exact problem. That makes sense legally and socially, but it leaves a gap.
+```txt
+http://localhost:8787/mask.html?v=mask-collector
+```
 
-If there is no data, there is no good model.
+## Repository Status
 
-If there is no good model, every app that needs accurate private-anatomy masking is forced to use weak detection, fake samples, or manual correction forever.
-
-This project is for the boring but necessary work:
-
-- consistent framing
-- consent-first collection
-- corrected masks
-- repeatable annotation rules
-- model training that can actually improve
-
-## What We Are Building
-
-Open Dick Project is split into two parts.
-
-### Public
-
-The public repository will contain:
-
-- project goals
-- annotation rules
-- consent and privacy principles
-- tooling that can be released safely
-- model training notes
-- non-sensitive examples
-
-### Private
-
-The private collection system stores:
-
-- submitted raw photos
-- corrected masks
-- deletion IDs
-- quality reports
-- internal training data
-
-Raw photos are not published in this repository.
-
-## What This Can Enable
-
-A good mask dataset can support:
-
-- better private-anatomy segmentation
-- automatic privacy masking
-- safer redaction tools
-- cleaner annotation workflows
-- better target detection for camera guidance
-- future length and girth estimation research
-
-Size measurement is a later layer.
-
-To measure size, a system also needs scale information, such as a reference object, camera geometry, device data, or self-reported measurements. A mask alone does not create centimeters.
-
-But without the mask, measurement is guessing.
-
-## Rules
-
-This project only works if the rules are clear.
-
-- 18+ only.
-- Submit only your own image.
-- No face.
-- No name.
-- No identifying details.
-- Raw photos stay private.
-- Public releases must not expose contributors.
-
-See [Dataset Governance](DATASET_GOVERNANCE.md) for risks, deletion rules, demographic-data policy, and maintenance metrics.
-
-See [Security Policy](SECURITY.md) for the public/private data boundary and minimum operational checks.
-
-## License
-
-The public code and documentation are intended to be released under the MIT License.
-
-Dataset and mask release terms will be handled separately because consent, privacy, and safety matter more than pretending a normal code license solves everything.
-
-## Status
-
-Early research prototype.
-
-The first mission is not to ship a perfect model.  
-The first mission is to collect better mask data safely.
-
-Then the model can get better.
+This is an early research prototype. The current priority is building a usable collection and annotation flow before publishing any dataset artifact.
