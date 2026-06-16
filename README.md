@@ -61,25 +61,15 @@ Current policy:
 - Masks and derived annotations: release policy to be defined by consent and dataset governance
 - Minor or suspected minor content: prohibited and subject to safety response
 
-## Local Development
+## Public Repository Scope
 
-Start the local web server:
+This public repository is for the mission, policies, schemas, governance notes, research notes, and future open tooling.
 
-```bash
-node server.mjs
-```
+The live collector is here:
 
-Then open:
+https://opendickproject.dpdns.org/mask?v=mask-collector
 
-```txt
-http://localhost:8787/
-```
-
-Mask collector:
-
-```txt
-http://localhost:8787/mask.html?v=mask-collector
-```
+Private raw submissions are not stored in this public repository.
 
 ## Repository Status
 
